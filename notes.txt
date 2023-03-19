@@ -1,0 +1,37 @@
+stateless => tidak dapat mengelola state.
+statefull => dapat mengelola state, tetapi ketika state diupdate, maka aplikasi akan dirender ulang dan dapat membebani memori
+management state => dapat mengelola state, dan hanya merender state yang terimpact
+
+====================
+Management state :
+1. install getX
+2. replace MaterialApp menjadi GetMaterialApp
+3. build controller (see doc getX). Berisi variable state, method/fungsi
+4. masukkan fungsi logic yang mempengaruhi state pada controller
+5. deklarasikan controller pada kelas consumer
+final myContoller = Get.put(nameController());
+6. masukkan nilai dan method
+7. bungkus widget yang mempunyai state dengan obx((){})
+
+1. reactive state management => tampilan auto berubah ketika ada perubahan pada state (menggunakan obs pada controller dan obx pada widget)
+2. simple state management => tampilan akan berubah jika trigger diaktifkan (menggunakan get builder)
+
+Worker => padanan dengan watcher di vue, yang berguna untuk memantau perubahan pada state
+1. ever => dipantau terus menerus.
+2. once => dipantau sekali
+3. debounce => dipantau pada setiap durasi tertentu setelah berhenti
+4. interval => dipantau pada setiap durasi tertentu saaat masih terjadi perubahan
+
+dependenct => melempar data dari 1 page ke page lain.
+yang dapat dilempar : data, kelas
+Get.put() => mendaftarkan semua yang ada pada controller
+get.find() => untuk menemukan yang sudah di put.
+get.lazyput() =>controller akan dicreate saat di find.
+
+put, diletakkan pada main sedangkan find dipakai pada widget/class consumer
+
+GetX juga include:
+1. snackbar
+2. dialog
+3. bottom sheet
+
